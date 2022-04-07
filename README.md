@@ -1,5 +1,15 @@
 ## nbb + AWS Function URLs
+This is probably the quickest and most painless way there's ever been to put Clojure code on the web.
 
+It combines three nice things:
+1. nbb, aka babashka for Node.js: https://github.com/babashka/nbb
+2. serverless framework: https://www.serverless.com/
+3. AWS Function URLs: https://aws.amazon.com/blogs/aws/announcing-aws-lambda-function-urls-built-in-https-endpoints-for-single-function-microservices/
+
+## Meaning What?
+Meaning you can have your ClojureScript code live on the web without jumping through the usual hoops of setting up a build system, compiling, configuring an API Gateway.
+
+## How-To
 1. clone this
 2. `npm install`
 3. `sls deploy`
