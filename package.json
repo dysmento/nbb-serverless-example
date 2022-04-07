@@ -1,8 +1,8 @@
 {
-  "dependencies":{
-    "nbb":"^0.1.0"
+  "dependencies": {
+    "nbb": "^0.3.3"
   },
   "devDependencies": {
-    "serverless":"^2.70.0"
+    "serverless": "^3.12.0"
   }
 }

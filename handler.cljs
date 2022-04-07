@@ -8,7 +8,7 @@
     (js/Promise.resolve
      (clj->js
       {:statusCode 200
-       :body       (js/JSON.stringify #js{:result (+ x y)})}))))
+       :body       (js/JSON.stringify #js{:result (str "Hello " x)})}))))
 
 ;; exports
 #js {:handler handler}
