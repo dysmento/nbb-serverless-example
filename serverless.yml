@@ -1,4 +1,4 @@
-service: nbb-serverless-example
+service: nbb-ftw
 
 frameworkVersion: '2 || 3'
 

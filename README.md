@@ -1,25 +1,26 @@
-# nbb serverless example
+## nbb + AWS Function URLs
 
-This example demonstrates how to deploy and run CLJS code on AWS Lambda NodeJS 14.x runtime using [Serverless Framework](https://www.serverless.com/).
+1. clone this
+2. `npm install`
+3. `sls deploy`
 
-We setup a simple HTTP POST endpoint on API Gateway that proxies requests to a lambda function. `index.mjs` file works as a bootstrap that uses [nbb](https://github.com/babashka/nbb/) to load CLJS code when the lambda (cold)starts.
+Assumes you have AWS credentials and permission to create a CloudFormation stack and all the resources that it uses: S3 bucket for deploys, IAM role for Lambda execution, log group, and the Lambda function itself.
 
-## Prerequisities
+After deploy, you'll be given the HTTP endpoint to use. This is a Hello, World, so it's not doing much:
 
-* AWS Account and API credentials configured on your system
-* Node
 
-## Setup, deployment and testing
-
-* `npm install`
-* `npx sls deploy`
-
-Grab the endpoint URL from the output and call it like this:
-
-```shell
-curl -X POST -H "Content-Type: application/json" -d '{"x":1,"y":2}' https://1xz3t07x70.execute-api.us-east-1.amazonaws.com/dev/add
 ```
+http https://your-very-own-endpoint-here.lambda-url.us-east-2.on.aws/ name=Todd
 
-## Develop
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Length: 24
+Content-Type: application/json
+Date: Thu, 07 Apr 2022 18:11:30 GMT
+X-Amzn-Trace-Id: root=1-624f2952-256c974c58fadb721b91c251;sampled=0
+x-amzn-RequestId: 2553ad72-ef8c-4e18-9d6b-5223895dbb3e
 
-You can edit the code locally or directly in the Lambda Console.
+{
+    "result": "Hello, Todd"
+}
+```

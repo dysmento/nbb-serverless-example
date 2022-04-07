@@ -3,12 +3,11 @@
 
 (defn handler [event _ctx]
   (let [body (js/JSON.parse (j/get event :body))
-        x    (j/get body :x)
-        y    (j/get body :y)]
+        name (j/get body :name)]
     (js/Promise.resolve
      (clj->js
       {:statusCode 200
-       :body       (js/JSON.stringify #js{:result (str "Hello " x)})}))))
+       :body       (js/JSON.stringify #js{:result (str "Hello, " name)})}))))
 
 ;; exports
 #js {:handler handler}
